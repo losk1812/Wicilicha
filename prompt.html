@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wicilicha</title>
+</head>
+<body>
+
+    <script>
+        var words = [
+        "программа",
+        "макака",
+        "прекрасный",
+        "оладушек"
+        ];     //Созданние массива
+        var word = words[Math.floor(Math.random() * words.length)]; /*выбираем слово из массива*/
+        var answerArray = []; // создание пустого массива
+        for (var i = 0; i < word.length; i++) {
+        answerArray[i] = "_"; // заполнение символом (_) загадонного слова
+        }
+        var remainingLetters = word.length; // оставшиеся буквы
+
+        while (remainingLetters > 0) { // пока оставшиеся буквы больше 0 выолняеться основной код в while
+            alert(answerArray.join(" ")); // текущее состояние игры
+            var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+            if (guess === null) // если игрок не ввёл букву, прерываеться алгоритм
+            {
+                break;
+            }
+            
+            else if (guess.length !== 1) { // если игрок ввёл не 1 букву то выводить сообщение 
+            alert("Пожалуйста, введите только одну букву.");
+            } else {
+            // Обновляем состояние игры
+            }
+            for (var j = 0; j < word.length; j++) { //пока j у нас меньше длинны слова выполняеться тело цикла
+                if (word[j] === guess) { // если переменная word равен букве которую мы ввели то ->
+                answerArray[j] = guess; // черточки убираються на введённые буквы
+                remainingLetters--; // убираеться оставшиеся буквы
+                }
+
+            }
+        }
+
+    alert(answerArray.join(" "));// отоброжаем пустой массив _
+    alert("Отлично! Было загадано слово " + word);
+
+
+        
+
+
+    </script>
+</body>
+</html>
